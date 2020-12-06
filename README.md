@@ -1,2 +1,3 @@
 # KeepFit
-Our web application is a diet, health and fitness planner that helps the user keep track of the food they eat, their exercise routines, as well as their calculated calorie intake and loss on a daily basis. 
+Our web application is a diet, health and fitness planner that helps the user keep track of the food they eat, their exercise routines, as well as their calculated calorie intake and loss on a daily basis. It solves the problem of having to manually track one’s diet, health and fitness by providing one place to store all of this information so as to make it a systematic and smooth process, also allowing the user to set new health and fitness goals every week. The users of this app will include any person looking to improve their diet and keep track of their health and fitness regularly. 
+
