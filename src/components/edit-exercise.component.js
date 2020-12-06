@@ -8,21 +8,21 @@ export default class EditExercise extends Component {
     super(props);
 
     this.onChangeUsername = this.onChangeUsername.bind(this);
+    this.onChangeHeight = this.onChangeHeight.bind(this);
     this.onChangeWeight = this.onChangeWeight.bind(this);
     this.onChangeCalorieIntake = this.onChangeCalorieIntake.bind(this);
     this.onChangeExerciseType = this.onChangeExerciseType.bind(this);
     this.onChangeCalorieLoss = this.onChangeCalorieLoss.bind(this);
-    this.onChangeDuration = this.onChangeDuration.bind(this);
     this.onChangeDate = this.onChangeDate.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
       username: '',
+      height: 0,
       weight: 0,
       calorie_intake: 0,
       exercise_type: '',
       calorie_loss: 0,
-      duration: 0,
       date: new Date(),
       users: []
     }
@@ -33,11 +33,11 @@ export default class EditExercise extends Component {
       .then(response => {
         this.setState({
           username: response.data.username,
+          height: response.data.height,
           weight: response.data.weight,
           calorie_intake: response.data.calorie_intake,
           exercise_type: response.data.exercise_type,
           calorie_loss: response.data.calorie_loss,
-          duration: response.data.duration,
           date: new Date(response.data.date)
         })   
       })
@@ -57,6 +57,12 @@ export default class EditExercise extends Component {
   onChangeUsername(e) {
     this.setState({
       username: e.target.value
+    });
+  }
+
+    onChangeHeight(e) {
+    this.setState({
+      height: e.target.value
     });
   }
 
@@ -83,11 +89,7 @@ export default class EditExercise extends Component {
     });
   }
 
-  onChangeDuration(e) {
-    this.setState({
-      duration: e.target.value
-    });
-  }
+
 
   onChangeDate(date) {
     this.setState({
@@ -100,11 +102,11 @@ export default class EditExercise extends Component {
 
     const exercise = {
       username: this.state.username,
+      height: this.state.height,
       weight: this.state.weight,
       calorie_intake: this.state.calorie_intake,
       exercise_type: this.state.exercise_type,
       calorie_loss: this.state.calorie_loss,
-      duration: this.state.duration,
       date: this.state.date,
     };
 
@@ -136,6 +138,16 @@ export default class EditExercise extends Component {
                   })
                 }
             </select>
+          </div>
+
+              <div className="form-group">
+            <label>Height(in metres): </label>
+            <input 
+                type="text" 
+                className="form-control"
+                value={this.state.height}
+                onChange={this.onChangeHeight}
+                />
           </div>
 
                     <div className="form-group">
@@ -184,15 +196,7 @@ export default class EditExercise extends Component {
                 onChange={this.onChangeCalorieLoss}
                 />
           </div>
-          <div className="form-group">
-            <label>Duration (in minutes): </label>
-            <input 
-                type="text" 
-                className="form-control"
-                value={this.state.duration}
-                onChange={this.onChangeDuration}
-                />
-          </div>
+
           <div className="form-group">
             <label>Date: </label>
             <DatePicker

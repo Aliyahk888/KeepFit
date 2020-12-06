@@ -5,16 +5,23 @@ import img1 from './images/diet3.jpg'
 
 
 const Exercise = props => (
+
   <tr bgcolor="#ADD8E6">
+
     <td>{props.exercise.username}</td>
+    <td>{props.exercise.height}</td>
     <td>{props.exercise.weight}</td>
     <td>{props.exercise.calorie_intake}</td>
     <td>{props.exercise.exercise_type}</td>
     <td>{props.exercise.calorie_loss}</td>
-    <td>{props.exercise.duration}</td>
+
+
+    <td>{(props.exercise.weight/(props.exercise.height*props.exercise.height)).toFixed(2)}</td>
+    <td>{(props.exercise.calorie_intake-props.exercise.calorie_loss)}</td>
+
     <td>{props.exercise.date.substring(0,10)}</td>
     <td>
-      <a href="https://www.healthline.com/health/exercise-fitness/how-to-do-crunches" target="_blank"> Info </a> | <Link to={"/edit/"+props.exercise._id}>edit</Link> | <a href="#" onClick={() => { props.deleteExercise(props.exercise._id) }}>delete</a>
+     <Link to={"/edit/"+props.exercise._id}>edit</Link> | <a href="#" onClick={() => { props.deleteExercise(props.exercise._id) }}>delete</a>
     </td>
   </tr>
 )
@@ -65,11 +72,13 @@ exerciseList() {
     <thead className="thead-light">
       <tr>
         <th>Username</th>
+        <th>Height (m)</th>
         <th>Weight (kgs)</th>
         <th>Calorie Intake (cal)</th>
         <th>Exercise Type</th>
         <th>Calorie Loss (cal)</th>
-        <th>Duration (mins)</th>
+        <th>BMI</th>
+        <th></th>
         <th>Date</th>
         <th>Actions</th>
       </tr>

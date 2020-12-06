@@ -19,6 +19,7 @@ export default class Navbar extends Component {
           <Link to="/user" className="nav-link">Create User</Link>
           </li>
         </ul>
+         <a href="http://www.fitstream.com/articles/fitness-planning-a184" style={{color:"black"}} target="_blank">Read more about fitness planning here ></a>
         </div>
       </nav>
     );

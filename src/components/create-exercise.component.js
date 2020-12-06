@@ -9,11 +9,11 @@ export default class CreateExercise extends Component {
     super(props);
 
     this.onChangeUsername = this.onChangeUsername.bind(this);
+    this.onChangeHeight = this.onChangeHeight.bind(this);
     this.onChangeWeight = this.onChangeWeight.bind(this);
     this.onChangeCalorieIntake = this.onChangeCalorieIntake.bind(this);
     this.onChangeExerciseType = this.onChangeExerciseType.bind(this);
     this.onChangeCalorieLoss = this.onChangeCalorieLoss.bind(this);
-    this.onChangeDuration = this.onChangeDuration.bind(this);
     this.onChangeDate = this.onChangeDate.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
@@ -30,11 +30,11 @@ export default class CreateExercise extends Component {
 
     this.state = {
       username: '',
+      height: 0,
       weight: 0,
       calorie_intake: 0,
       exercise_type: '',
       calorie_loss: 0,
-      duration: 0,
       date: new Date(),
       users: []
     }
@@ -84,9 +84,9 @@ axios.get('http://localhost:5000/users/')
     });
   }
 
-  onChangeDuration(e) {
+  onChangeHeight(e) {
     this.setState({
-      duration: e.target.value
+      height: e.target.value
     });
   }
 
@@ -101,11 +101,11 @@ axios.get('http://localhost:5000/users/')
   
     const exercise = {
       username: this.state.username,
+      height: this.state.height,
       weight: this.state.weight,
       calorie_intake: this.state.calorie_intake,
       exercise_type: this.state.exercise_type,
       calorie_loss: this.state.calorie_loss,
-      duration: this.state.duration,
       date: this.state.date,
     };
   
@@ -137,6 +137,16 @@ axios.get('http://localhost:5000/users/')
                   })
                 }
             </select>
+          </div>
+
+             <div className="form-group">
+            <label>Height(in metres): </label>
+            <input 
+                type="text" 
+                className="form-control"
+                value={this.state.height}
+                onChange={this.onChangeHeight}
+                />
           </div>
 
                     <div className="form-group">
@@ -187,15 +197,7 @@ axios.get('http://localhost:5000/users/')
                 />
           </div>
 
-          <div className="form-group">
-            <label>Duration (in minutes): </label>
-            <input 
-                type="text" 
-                className="form-control"
-                value={this.state.duration}
-                onChange={this.onChangeDuration}
-                />
-          </div>
+
           <div className="form-group">
             <label>Date: </label>
             <div>

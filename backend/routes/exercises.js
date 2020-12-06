@@ -9,20 +9,20 @@ router.route('/').get((req, res) => {
 
 router.route('/add').post((req, res) => {
   const username = req.body.username;
+  const height = Number(req.body.height);
   const weight = Number(req.body.weight);
   const calorie_intake = Number(req.body.calorie_intake);
   const exercise_type = req.body.exercise_type;
   const calorie_loss = Number(req.body.calorie_loss);
-  const duration = Number(req.body.duration);
   const date = Date.parse(req.body.date);
 
   const newExercise = new Exercise({
     username,
+    height,
     weight,
     calorie_intake,
     exercise_type,
     calorie_loss,
-    duration,
     date,
   });
 
@@ -47,11 +47,11 @@ router.route('/update/:id').post((req, res) => {
   Exercise.findById(req.params.id)
     .then(exercise => {
       exercise.username = req.body.username;
+      exercise.height = Number(req.body.height);
       exercise.weight = Number(req.body.weight);
       exercise.calorie_intake = Number(req.body.calorie_intake);
       exercise.exercise_type = req.body.exercise_type;
       exercise.calorie_loss = Number(req.body.calorie_loss);
-      exercise.duration = Number(req.body.duration);
       exercise.date = Date.parse(req.body.date);
 
       exercise.save()
