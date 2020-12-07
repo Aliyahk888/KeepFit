@@ -34,6 +34,29 @@ const divStyle = {
   opacity: 0.8
 };
 
+const footerStyle = {
+  position: 'fixed',
+  left: 0,
+  bottom: 0,
+  width: '100%',
+  height: '7.5%',
+  backgroundColor: 'white',
+  color: 'white',
+  opacity: 0.65,
+  textAlign: 'center'
+
+
+};
+
+const contactStyle={
+  color:'black',
+  display:'inline',
+  font: 'Open Sans',
+  fontWeight:'bold',
+
+
+}
+
 export default class ExercisesList extends Component {
 	constructor(props) {
   super(props);
@@ -65,7 +88,7 @@ exerciseList() {
 
   render() {
     return (
-
+<div>
 <div style={divStyle}>
   <h3>Planner Log</h3>
   <table style={{color:"black"}} className="table">
@@ -78,7 +101,7 @@ exerciseList() {
         <th>Exercise Type</th>
         <th>Calorie Loss (cal)</th>
         <th>BMI</th>
-        <th></th>
+        <th>Remaining calories</th>
         <th>Date</th>
         <th>Actions</th>
       </tr>
@@ -88,6 +111,23 @@ exerciseList() {
     </tbody>
   </table>
 </div>
+
+
+<div class="footer" style={footerStyle}>
+<div class="copyright" style={contactStyle}>© Copyright 2020 Aliyah and Anwesha.</div>
+
+<br/>
+<div class="contact" style={contactStyle}>Contact us at: &nbsp; </div>
+<img src={require('./images/phone.jpeg')} width= '24px'height= '24px'/><div class="contact" style={contactStyle}>9663022882&nbsp;&nbsp;&nbsp;&nbsp;</div>
+
+<img src={require('./images/phone.jpeg')} width= '24px'height= '24px'/><div class="contact" style={contactStyle}>8787667898</div>
+
+  <p>Footer</p>
+</div>
+
+</div>
+
+
     )
   }
 }

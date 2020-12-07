@@ -4,6 +4,29 @@ import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
+      const footerStyle = {
+  position: 'fixed',
+  left: 0,
+  bottom: 0,
+  width: '100%',
+  height: '6%',
+  backgroundColor: 'white',
+  color: 'white',
+  opacity: 0.65,
+  textAlign: 'center'
+
+
+};
+
+const contactStyle={
+  color:'black',
+  display:'inline',
+  font: 'Open Sans',
+  fontWeight:'bold',
+ 
+
+}
+
 export default class CreateExercise extends Component {
   constructor(props) {
     super(props);
@@ -16,6 +39,8 @@ export default class CreateExercise extends Component {
     this.onChangeCalorieLoss = this.onChangeCalorieLoss.bind(this);
     this.onChangeDate = this.onChangeDate.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+
+
 
           /*</div>
           <div className="form-group"> 
@@ -116,8 +141,11 @@ axios.get('http://localhost:5000/users/')
     window.location = '/';
   }
 
+
+
   render() {
     return (
+      <div>
       <div>
         <h3>Create New Exercise Log</h3>
         <form onSubmit={this.onSubmit}>
@@ -217,6 +245,19 @@ axios.get('http://localhost:5000/users/')
           </div>
         </form>
       </div>
+
+<div class="footer" style={footerStyle}>
+<div class="copyright" style={contactStyle}>© Copyright 2020 Aliyah and Anwesha.</div>
+<br/>
+<div class="contact" style={contactStyle}>Contact us at: </div>
+<img src={require('./images/phone.jpeg')} width= '24px'height= '24px'/><div class="contact" style={contactStyle}>9663022882&nbsp;&nbsp;&nbsp;&nbsp;</div>
+
+<img src={require('./images/phone.jpeg')} width= '24px'height= '24px'/><div class="contact" style={contactStyle}>8787667898</div>
+
+  <p>Footer</p>
+</div>
+
+</div>
     )
   }
 }

@@ -5,6 +5,7 @@ export default class Navbar extends Component {
 
   render() {
     return (
+
       <nav className="navbar navbar-light bg-info navbar-expand-lg">
         <Link to="/" className="navbar-brand">KEEPFIT! A Diet, Fitness & Health Tracker</Link>
         <div className="collpase navbar-collapse">
@@ -22,6 +23,13 @@ export default class Navbar extends Component {
          <a href="http://www.fitstream.com/articles/fitness-planning-a184" style={{color:"black"}} target="_blank">Read more about fitness planning here ></a>
         </div>
       </nav>
+
+
+        
+
+
+
+
     );
   }
 }

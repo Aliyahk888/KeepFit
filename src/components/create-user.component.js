@@ -11,6 +11,29 @@ const divStyle = {
   //opacity: 0.5
 };
 
+const footerStyle = {
+  position: 'fixed',
+  left: 0,
+  bottom: 0,
+  width: '100%',
+  height: '7.5%',
+  backgroundColor: 'white',
+  color: 'white',
+  opacity: 0.65,
+  textAlign: 'center'
+
+
+};
+
+const contactStyle={
+  color:'black',
+  display:'inline',
+  font: 'Open Sans',
+  fontWeight:'bold',
+ 
+
+}
+
 export default class CreateUser extends Component {
 	constructor(props) {
   super(props);
@@ -46,6 +69,7 @@ onSubmit(e) {
 //style={divStyle}
   render() {
     return (
+      <div>
 <div>
   <h3 style={{display: 'flex',justifyContent:'center'}}>Welcome to Keepfit! We'll help you keep track of your diet, fitness and health goals. </h3>
   <h4 style={{display: 'flex',justifyContent:'center'}}> Start by simply creating a username! </h4>
@@ -66,6 +90,20 @@ onSubmit(e) {
     </div>
   </form>
 </div>
+
+<div class="footer" style={footerStyle}>
+<div class="copyright" style={contactStyle}>© Copyright 2020 Aliyah and Anwesha.</div>
+<br/>
+<div class="contact" style={contactStyle}>Contact us at: </div>
+<img src={require('./images/phone.jpeg')} width= '24px'height= '24px'/><div class="contact" style={contactStyle}>9663022882&nbsp;&nbsp;&nbsp;&nbsp;</div>
+
+<img src={require('./images/phone.jpeg')} width= '24px'height= '24px'/><div class="contact" style={contactStyle}>8787667898</div>
+
+  <p>Footer</p>
+</div>
+
+</div>
+
 
 
 
